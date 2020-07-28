@@ -11,35 +11,24 @@ output_data      ---->   DDR address that point to result data
 weights          ---->   DDR address that point to weights data
 ***********************************************/
 
-#include "full_connection_layer.h"
+#include "full_connection_layer2.h"
 
-void full_connection_layer1(
-    float *input_data,
-    float *output_data,
+void full_connection_layer2(
+    float input_data_buf[INPUT_NUM1],
+    float output_data_buf[OUTPUT_NUM1],
     float *weights,
     bool active   
 )
 {
 #pragma HLS INTERFACE s_axilite port=return
 #pragma HLS INTERFACE m_axi depth=30 port=weights
-#pragma HLS INTERFACE m_axi depth=30 port=output_data
-#pragma HLS INTERFACE m_axi depth=30 port=input_data
-    float input_data_buf[INPUT_NUM1];
 #pragma HLS ARRAY_PARTITION variable=input_data_buf complete dim=1
-    float output_data_buf[OUTPUT_NUM1];
 #pragma HLS ARRAY_PARTITION variable=output_data_buf complete dim=1
     float weights_buf[OUTPUT_NUM1][INPUT_NUM1];
 #pragma HLS ARRAY_PARTITION variable=weights_buf complete dim=2
 
     load_data:
     {
-        load_input:for (int i = 0; i < INPUT_NUM1; i++)
-        {
-#pragma HLS PIPELINE
-            /* code */
-            input_data_buf[i] = *input_data++;
-        }
-
         load_weights:for (int i = 0; i < OUTPUT_NUM1; i++)
         {
             /* code */
@@ -72,16 +61,5 @@ void full_connection_layer1(
             }
             
         }
-    }
-
-    output_overload:
-    {
-        read_back:for (int i = 0; i < OUTPUT_NUM1; i++)
-        {
-#pragma HLS PIPELINE
-            /* code */
-            *output_data++ = output_data_buf[i]; 
-        }
-        
     }
 }
