@@ -92,6 +92,29 @@ def convertRGB2L(jpgfile, outdir, width=32, height=32):
         print(e)
 
 
+def save_L_to_npy(jpgfile, outdir, width=32, height=32):
+    img = PIL.Image.open(jpgfile)
+    try:
+        new_img_32 = img.resize((width, height), PIL.Image.BILINEAR)
+        new_img = new_img_32.convert('L')
+        new_img.save(os.path.join(outdir, os.path.basename(jpgfile)))
+    except Exception as e:
+        print(e)
+
+
+def image2npy(npy_path='D:\\dataset\\GTRSB', jpg_path='D:\dataset\GTRSB\Trainning_Images_Shaped_32'):
+    imag_array = np.empty([39209, 32, 32], float)
+    j = 0
+    for i in range(0, 43):
+        for jpgfile in glob.glob(jpg_path + '\\' + format(i, '05d') + r'\\*.jpg'):
+            img = Image.open(jpgfile)
+            imag_array[j] = np.array(img) / 255
+            j = j + 1
+        print(format(i, '05d') + "done")
+    np.save(npy_path + "\\imag.npy", imag_array)
+    print(imag_array[0].shape)
+
+
 if __name__ == "__main__":
     # define dataset path
     root_path = 'D:\\dataset\\GTRSB\\'
@@ -119,3 +142,4 @@ if __name__ == "__main__":
         for jpgfile in glob.glob(train_jpg_dir + '\\' + format(i, '05d') + r'\\*.jpg'):
             convertRGB2L(jpgfile, shaped_image_dir + '\\' + format(i, '05d'))
 
+    image2npy(npy_path=root_path, jpg_path=shaped_image_dir)
