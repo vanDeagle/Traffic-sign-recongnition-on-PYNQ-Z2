@@ -22,7 +22,7 @@ void pooling_layer2(
                     for (int kc = 0; kc < K; kc++)
                     {
                         /* code */
-                        max = (In[2*r+kr][2*c+kc] > max) ? In[2*r+kr][2*c+kc] : max;
+                        max = (In[chi][2*r+kr][2*c+kc] > max) ? In[chi][2*r+kr][2*c+kc] : max;
                     }
                     
                 }

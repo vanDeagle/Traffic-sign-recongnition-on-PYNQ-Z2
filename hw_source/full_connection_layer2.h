@@ -10,6 +10,6 @@ extern void full_connection_layer2(
     float output_data_buf[OUTPUT_NUM1],
     float *weights,
     bool active   
-)
+);
 
 #endif

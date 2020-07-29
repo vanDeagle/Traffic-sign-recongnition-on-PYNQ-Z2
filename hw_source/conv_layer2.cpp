@@ -3,7 +3,7 @@
 void conv_layer2(float In[CHin][Rin][Cin],float Out[CHout][R][C],float *Weight)
 {
 
-float W[CHout][CHin][K][K]
+float W[CHout][CHin][K][K];
 #pragma HLS INTERFACE s_axilite port=return
 #pragma HLS INTERFACE m_axi depth=30 port=Weight
 #pragma HLS array_partition variable=In complete dim=1
