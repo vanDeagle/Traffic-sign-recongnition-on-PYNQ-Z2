@@ -17,15 +17,18 @@ void full_connection_layer1(
     float input_data_buf[INPUT_NUM1],
     float output_data_buf[OUTPUT_NUM1],
     float *weights,
+    float *bias,
     bool active   
 )
 {
 #pragma HLS INTERFACE s_axilite port=return
-#pragma HLS INTERFACE m_axi depth=30 port=weights
-#pragma HLS ARRAY_PARTITION variable=input_data_buf complete dim=1
-#pragma HLS ARRAY_PARTITION variable=output_data_buf complete dim=1
+#pragma HLS INTERFACE m_axi depth=256 port=weights offset=slave
+#pragma HLS INTERFACE m_axi depth=256 port=bias offset=slave
+#pragma HLS ARRAY_PARTITION variable=input_data_buf cyclic factor=2 dim=1
+#pragma HLS ARRAY_PARTITION variable=output_data_buf cyclic factor=2 dim=1
     float weights_buf[OUTPUT_NUM1][INPUT_NUM1];
-#pragma HLS ARRAY_PARTITION variable=weights_buf complete dim=2
+    float bias_buf[OUTPUT_NUM1];
+#pragma HLS ARRAY_PARTITION variable=weights_buf cyclic factor=2 dim=2
 
     load_data:
     {
@@ -39,6 +42,12 @@ void full_connection_layer1(
                 weights_buf[i][j] = *weights++;
             }    
         }
+        load_bias:for (int i = 0; i < OUTPUT_NUM1; i++)
+        {
+            /* code */
+            bias_buf[i] = *bias++;
+        }
+        
     }
 
     full_C_cal:
@@ -53,6 +62,7 @@ void full_connection_layer1(
                 /* code */
                 temp += input_data_buf[j] * weights_buf[i][j];
             }
+            temp += bias_buf[i];
             if(active)
                 output_data_buf[i] = (temp > 0) ? temp : 0;
             else
@@ -62,4 +72,6 @@ void full_connection_layer1(
             
         }
     }
+
+    
 }

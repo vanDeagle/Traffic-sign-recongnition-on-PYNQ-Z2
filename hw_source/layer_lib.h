@@ -14,14 +14,14 @@
 #define CONV1_R 28
 #define CONV1_C 28
 #define CONV1_CHin 1
-#define CONV1_CHout 6
+#define CONV1_CHout 32
 
 #define CONV2_Rin 14
 #define CONV2_Cin 14
 #define CONV2_R 10
 #define CONV2_C 10
-#define CONV2_CHin 6
-#define CONV2_CHout 16
+#define CONV2_CHin 32
+#define CONV2_CHout 64
 
 #define POOLING_K 2
 
@@ -29,21 +29,21 @@
 #define POOLING1_Cin 28
 #define POOLING1_R 14
 #define POOLING1_C 14
-#define POOLING1_CHin 6
-#define POOLING1_CHout 6
+#define POOLING1_CHin 32
+#define POOLING1_CHout 32
 
 #define POOLING2_Rin 10
 #define POOLING2_Cin 10
 #define POOLING2_R 5
 #define POOLING2_C 5
-#define POOLING2_CHin 16
-#define POOLING2_CHout 16
+#define POOLING2_CHin 64
+#define POOLING2_CHout 64
 
-#define FC1_INPUT_NUM1      400
-#define FC1_OUTPUT_NUM1     120
+#define FC1_INPUT_NUM1      1600
+#define FC1_OUTPUT_NUM1     1024
 
-#define FC2_INPUT_NUM1      120
-#define FC2_OUTPUT_NUM1     84
+#define FC2_INPUT_NUM1      1024
+#define FC2_OUTPUT_NUM1     43
 
 #define FC3_INPUT_NUM1      84
 #define FC3_OUTPUT_NUM1     43
@@ -63,19 +63,24 @@ extern void pooling_layer2(
 extern void conv_layer1(
     float In[CONV1_CHin][CONV1_Rin][CONV1_Cin],
     float Out[CONV1_CHout][CONV1_R][CONV1_C],
-    float *Weight
+    float *Weight,
+    float *bias,
+    bool active
     );
 
 extern void conv_layer2(
     float In[CONV2_CHin][CONV2_Rin][CONV2_Cin],
     float Out[CONV2_CHout][CONV2_R][CONV2_C],
-    float *Weight
+    float *weights,
+    float *bias,
+    bool active
     );
 
 extern void full_connection_layer1(
     float input_data_buf[FC1_INPUT_NUM1],
     float output_data_buf[FC1_OUTPUT_NUM1],
     float *weights,
+    float *bias,
     bool active   
 );
 
@@ -83,6 +88,7 @@ extern void full_connection_layer2(
     float input_data_buf[FC2_INPUT_NUM1],
     float output_data_buf[FC2_OUTPUT_NUM1],
     float *weights,
+    float *bias,
     bool active   
 );
 

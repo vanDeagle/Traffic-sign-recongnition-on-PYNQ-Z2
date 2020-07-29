@@ -6,7 +6,6 @@ void pooling_layer2(
 )
 {
     float Out[CHout][R][C];
-    #pragma HLS ARRAY_PARTITION variable=Out complete dim=3
     for (int chi = 0; chi < CHin; chi++)
     {
         for (int r = 0; r < R; r++)
@@ -45,6 +44,7 @@ void pooling_layer2(
                 #pragma HLS PIPELINE
                 /* code */
                 out_1D[cnt] = Out[cho][r][c];
+                cnt++;
             }
             
         }
