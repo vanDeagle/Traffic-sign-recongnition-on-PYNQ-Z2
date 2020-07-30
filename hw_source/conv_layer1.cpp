@@ -11,17 +11,17 @@ float Out_buf[CHout][R][C];
 #pragma HLS INTERFACE m_axi depth=256 port=bias offset=slave
 #pragma HLS ARRAY_PARTITION variable=Out cyclic factor=2 dim=1
 
-    load_weights:for (int i = 0; i < CHout; i++)
+    load_weights:for (int m = 0; m < K; m++)
     {
         /* code */
-        for (int j = 0; j < CHin; j++)
+        for (int n = 0; n < K; n++)
         {
 #pragma HLS PIPELINE
             /* code */
-			for (int m = 0; m < K; m++)
+			for (int j = 0; j < CHin; j++)
 			{
 				/* code */
-				for (int n = 0; n < K; n++)
+				for (int i = 0; i < CHout; i++)
 				{
 					/* code */
             		W[i][j][m][n] = *Weight++;

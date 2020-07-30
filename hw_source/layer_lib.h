@@ -21,7 +21,7 @@
 #define CONV2_R 10
 #define CONV2_C 10
 #define CONV2_CHin 32
-#define CONV2_CHout 64
+#define CONV2_CHout 32
 
 #define POOLING_K 2
 
@@ -36,13 +36,13 @@
 #define POOLING2_Cin 10
 #define POOLING2_R 5
 #define POOLING2_C 5
-#define POOLING2_CHin 64
-#define POOLING2_CHout 64
+#define POOLING2_CHin 32
+#define POOLING2_CHout 32
 
-#define FC1_INPUT_NUM1      1600
-#define FC1_OUTPUT_NUM1     1024
+#define FC1_INPUT_NUM1      800
+#define FC1_OUTPUT_NUM1     64
 
-#define FC2_INPUT_NUM1      1024
+#define FC2_INPUT_NUM1      64
 #define FC2_OUTPUT_NUM1     43
 
 #define FC3_INPUT_NUM1      84

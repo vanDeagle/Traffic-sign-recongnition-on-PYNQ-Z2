@@ -1,8 +1,8 @@
 #ifndef __FULL_CONNECTION_LAYER1_H__
 #define __FULL_CONNECTION_LAYER1_H__
 
-#define INPUT_NUM1      1600
-#define OUTPUT_NUM1     800
+#define INPUT_NUM1      800
+#define OUTPUT_NUM1     64
 
 
 extern void full_connection_layer1(

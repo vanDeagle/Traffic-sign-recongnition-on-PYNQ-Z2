@@ -18,14 +18,14 @@ float Out_buf[CHout][R][C];
 		/* code */
 		for (int kc = 0; kc < K; kc++)
 		{
-			load_weights:for (int i = 0; i < CHout; i++)
+			load_weights:for (int i = 0; i < CHin; i++)
 			{
 				/* code */
-				for (int j = 0; j < CHin; j++)
+				for (int j = 0; j < CHout; j++)
 				{
 		#pragma HLS PIPELINE
 					/* code */
-					W[i][j] = *Weight++;
+					W[j][i] = *Weight++;
 				}    
 			}
 

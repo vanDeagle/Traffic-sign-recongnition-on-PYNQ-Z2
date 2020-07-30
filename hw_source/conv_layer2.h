@@ -7,7 +7,7 @@
 #define R 10
 #define C 10
 #define CHin 32
-#define CHout 64
+#define CHout 32
 
 extern void conv_layer2(float In[CHin][Rin][Cin],float Out[CHout][R][C],float *Weight,float *bias,bool active);
 #endif

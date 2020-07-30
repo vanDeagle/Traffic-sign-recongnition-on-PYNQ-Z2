@@ -1,7 +1,7 @@
 #ifndef __FULL_CONNECTION_LAYER2_H__
 #define __FULL_CONNECTION_LAYER2_H__
 
-#define INPUT_NUM1      1024
+#define INPUT_NUM1      64
 #define OUTPUT_NUM1     43
 
 

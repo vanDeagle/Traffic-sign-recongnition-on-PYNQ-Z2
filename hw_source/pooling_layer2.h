@@ -6,8 +6,8 @@
 #define Cin 10
 #define R 5
 #define C 5
-#define CHin 64
-#define CHout 64
+#define CHin 32
+#define CHout 32
 
 extern void pooling_layer2(
     float In[CHin][Rin][Cin],
