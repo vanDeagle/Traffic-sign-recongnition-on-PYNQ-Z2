@@ -9,9 +9,7 @@ float Out_buf[CHout][R][C];
 #pragma HLS INTERFACE s_axilite port=return
 #pragma HLS INTERFACE m_axi depth=256 port=Weight offset=slave
 #pragma HLS INTERFACE m_axi depth=256 port=bias offset=slave
-#pragma HLS ARRAY_PARTITION variable=In complete dim=1
-#pragma HLS array_partition variable=Out complete dim=1
-#pragma HLS ARRAY_PARTITION variable=W cyclic factor=2 dim=1
+#pragma HLS ARRAY_PARTITION variable=Out cyclic factor=2 dim=1
 
     load_weights:for (int i = 0; i < CHout; i++)
     {
@@ -26,7 +24,7 @@ float Out_buf[CHout][R][C];
 				for (int n = 0; n < K; n++)
 				{
 					/* code */
-            		W[i][j][m][n] = *Weight;
+            		W[i][j][m][n] = *Weight++;
 				}
 				
 			}

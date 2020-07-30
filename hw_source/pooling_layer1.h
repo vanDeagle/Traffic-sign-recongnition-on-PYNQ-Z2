@@ -11,8 +11,7 @@
 
 extern void pooling_layer1(
     float In[CHin][Rin][Cin],
-	float Out[CHout][R][C],
-    float *bias
+	float Out[CHout][R][C]
 );
 
 #endif
