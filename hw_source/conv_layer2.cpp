@@ -10,6 +10,7 @@ float Out_buf[CHout][R][C];
 #pragma HLS INTERFACE m_axi depth=256 port=Weight offset=slave
 #pragma HLS INTERFACE m_axi depth=256 port=bias offset=slave
 #pragma HLS ARRAY_PARTITION variable=Out cyclic factor=2 dim=1
+#pragma HLS ARRAY_PARTITION variable=W cyclic factor=4 dim=1
 
 
 	for (int kr = 0; kr < K; kr++)
@@ -35,11 +36,11 @@ float Out_buf[CHout][R][C];
 				for(int c=0; c<C; c++)	
 				{		
 					Output_Channel:
-					for(int cho=0; cho<CHout; cho++)
+					for(int chi=0; chi<CHin; chi++)
 					{
 						#pragma HLS PIPELINE
 						Input_Channel:
-						for(int chi=0; chi<CHin; chi++)						
+						for(int cho=0; cho<CHout; cho++)						
 						{
 							Out_buf[cho][r][c] += In[chi][r+kr][c+kc] * W[cho][chi];
 						}
