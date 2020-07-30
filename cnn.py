@@ -1,86 +1,74 @@
-
-from __future__ import print_function
+import matplotlib.pyplot as plt
 import tensorflow as tf
+from tensorflow.keras import layers, datasets, models
+import pickle
 import numpy as np
+import os
 
-data_root_path = "D:\\dataset\\GTRSB\\"
-image_array = np.load(data_root_path + 'imag.npy')
-label_data = np.load(data_root_path + 'label.npy')
-label_array = np.zeros(shape=[39209, 43], )
-for i in range(0, 39209):
-    label_array[i][label_data[i]] = 1
+# config graphic storage allocate automatically
+gpu_devices = tf.config.experimental.list_physical_devices(device_type='GPU')
+for gpu in gpu_devices:
+    tf.config.experimental.set_memory_growth(gpu, True)
 
+# to print texture without ignorance
+np.set_printoptions(threshold=np.inf)
 
-def compute_accuracy(v_xs, v_ys):
-    global prediction
-    y_pre = sess.run(prediction, feed_dict={xs: v_xs})
-    correct_prediction = tf.equal(tf.argmax(y_pre, 1), tf.argmax(v_ys, 1))
-    accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-    result = sess.run(accuracy, feed_dict={xs: v_xs, ys: v_ys})
-    return result
+# datasets path
+training_file = r'D:\dataset\traffic_data\train.p'
+validation_file = r'D:\dataset\traffic_data\valid.p'
+testing_file = r'D:\dataset\traffic_data\test.p'
 
+# load dataset
+with open(training_file, mode='rb') as f:
+    train = pickle.load(f)
+with open(validation_file, mode='rb') as f:
+    valid = pickle.load(f)
+with open(testing_file, mode='rb') as f:
+    test = pickle.load(f)
 
-def weight_variable(shape):
-    initial = tf.random.truncated_normal(shape, stddev=0.1)
-    return tf.Variable(initial)
+# get and handle x and labels, train, verify, test
+X_train, y_train = train['features'], train['labels']
+X_valid, y_valid = valid['features'], valid['labels']
+X_test, y_test = test['features'], test['labels']
 
+# convert image to float32
+X_train = X_train / 255.
+X_valid = X_valid / 255.
+X_test = X_test / 255.
 
-def bias_variable(shape):
-    initial = tf.constant(0.1, shape=shape)
-    return tf.Variable(initial)
+# cnn construction
+model = models.Sequential()
+# conv layer 1
+model.add(layers.Conv2D(32, (5, 5), activation='relu', input_shape=(32, 32, 3)))  # output size: 28*28*32
+# max pooling 1
+model.add(layers.MaxPooling2D((2, 2)))  # output size: 14*14*32
+# conv layer 2
+model.add(layers.Conv2D(32, (5, 5), activation='relu'))  # output size: 10*10*64
+# max pooling 2
+model.add(layers.MaxPooling2D((2, 2)))  # output size: 5*5*32
+# print information
+model.summary()
+# flat data
+model.add(layers.Flatten())  # 800 neurons
+# full connection 1
+model.add(layers.Dense(64, activation='relu'))  #
+# full connection 2, output is soft-maxed
+model.add(layers.Dense(43, activation='softmax'))
+# print information
+model.summary()
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
 
+# train the model 60 times
+model.fit(X_train, y_train, epochs=60)
+model.fit(X_test, y_test, epochs=30)
 
-def conv2d(x, W, padding_style='SAME'):
-    return tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding=padding_style)
+# test the model
+test_loss, test_acc = model.evaluate(X_test, y_test)
 
-
-def max_pool_2x2(x, padding_style='SAME'):
-    return tf.nn.max_pool2d(x, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding=padding_style)
-
-
-# define placeholder for inputs to network
-xs = tf.compat.v1.placeholder(tf.float32, [32, 32])
-ys = tf.compat.v1.placeholder(tf.float32, [43])
-x_image = tf.reshape(xs, [-1, 32, 32, 1])
-
-## conv1 layer ##
-W_conv1 = weight_variable([5, 5, 1, 32])
-b_conv1 = bias_variable([32])
-h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1, padding_style='VALID') + b_conv1)  # output 28*28*32
-h_pool1 = max_pool_2x2(h_conv1)  # 14*14*32
-## conv2 layer ##
-W_conv2 = weight_variable([5, 5, 32, 64])
-b_conv2 = bias_variable([64])
-h_conv2 = tf.nn.relu(conv2d(h_pool1, W_conv2, padding_style='VALID') + b_conv2)  # output 10*10*64
-h_pool2 = max_pool_2x2(h_conv2)  # 5*5*64
-## func1 layer ##
-W_fcl = weight_variable([5 * 5 * 64, 1024])
-b_fcl = bias_variable([1024])
-h_pool2_flat = tf.reshape(h_pool2, [-1, 5 * 5 * 64])  # [n_samples, 5, 5, 64] ->> [n_sample, 5*5*64]
-h_fcl = tf.nn.relu(tf.matmul(h_pool2_flat, W_fcl) + b_fcl)
-## func2 layer ##
-W_fcl2 = weight_variable([1024, 43])
-b_fcl2 = bias_variable([43])
-prediction = tf.matmul(h_fcl, W_fcl2) + b_fcl2
-
-# the error between prediction and real data
-cross_entropy = tf.reduce_mean(-tf.reduce_sum(ys * tf.log(prediction),
-                                              reduction_indices=[1]))  # loss
-train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
-
-sess = tf.Session()
-# important step
-# tf.initialize_all_variables() no long valid from
-# 2017-03-02 if using tensorflow >= 0.12
-if int((tf.__version__).split('.')[1]) < 12 and int((tf.__version__).split('.')[0]) < 1:
-    init = tf.initialize_all_variables()
-else:
-    init = tf.global_variables_initializer()
-sess.run(init)
-
-for i in range(39209):
-    # batch_xs, batch_ys = mnist.train.next_batch(100)
-    batch_xs = image_array[i]
-    batch_ys = label_array[i]
-    sess.run(train_step, feed_dict={xs: batch_xs, ys: batch_ys})
-    print(format(i, '05d'))
+datatexture_path = "D:\\dataset"
+for i in range(0, 7):
+    f = open(datatexture_path + '\\weight_layer_' + format(i, '01d') + '.txt', 'w')
+    print(np.array(model.layers[i].get_weights()), file=f)
+    f.close()
