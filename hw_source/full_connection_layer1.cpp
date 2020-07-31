@@ -30,7 +30,7 @@ void full_connection_layer1(
     for (int i = 0; i < OUTPUT_NUM1; i++)
     {
         /* code */
-        bias_buf[j] = *bias++;
+        bias_buf[i] = *bias++;
     }
     
     for (int i = 0; i < INPUT_NUM1; i++)
