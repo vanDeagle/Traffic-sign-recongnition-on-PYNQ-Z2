@@ -3,6 +3,7 @@
 
 #define input_R 32
 #define input_C 32
+#define input_channel 3
 #define output_length 43
 
 
@@ -13,7 +14,7 @@
 #define CONV1_Cin 32
 #define CONV1_R 28
 #define CONV1_C 28
-#define CONV1_CHin 1
+#define CONV1_CHin 3
 #define CONV1_CHout 32
 
 #define CONV2_Rin 14

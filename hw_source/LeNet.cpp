@@ -20,7 +20,7 @@ void  LeNet_Hw(
 #pragma HLS INTERFACE m_axi depth=256 port=conv2_w offset=slave
 #pragma HLS INTERFACE m_axi depth=256 port=conv1_w offset=slave
 #pragma HLS INTERFACE s_axilite port=return
-    float input_data_buf[1][input_R][input_C];
+    float input_data_buf[input_channel][input_R][input_C];
     float conv1_out[CONV1_CHout][CONV1_R][CONV1_C];
     float pooling1_out[POOLING1_CHout][POOLING1_R][POOLING1_C];
     float conv2_out[CONV2_CHout][CONV2_R][CONV2_C];
@@ -35,7 +35,11 @@ void  LeNet_Hw(
         {
 #pragma HLS PIPELINE
             /* code */
-            input_data_buf[0][i][j] = *input_data++;
+            for (int chi = 0; chi < input_channel; chi++)
+            {
+                /* code */
+                input_data_buf[chi][i][j] = *input_data++;
+            }
         }
     }
 

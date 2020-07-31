@@ -52,7 +52,7 @@ void full_connection_layer2(
                 /* code */
                 if(i == 0)
                 {
-                    for (int cho = 0; cho < OUTPUT_NUM1; i++)
+                    for (int cho = 0; cho < OUTPUT_NUM1; cho++)
                     {
                         /* code */
                         output_data_buf[cho] = 0;
