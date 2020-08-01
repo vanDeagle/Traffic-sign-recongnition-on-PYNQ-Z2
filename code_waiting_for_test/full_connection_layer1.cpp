@@ -33,14 +33,8 @@ void full_connection_layer1(
                     output_data_buf[j] += input_data_buf[i] * weights_buf[j];
                 }
         }
-
-    for (int i = 0; i < OUTPUT_NUM1; i++)
-    {
-        /* code */
-                output_data_buf[i] += bias_buf[i];
-                if(active)
-                    output_data_buf[i] = (output_data_buf[i] > 0) ? output_data_buf[i] : 0;
-    }
-    
+    output_data_buf[i] += bias_buf[i];
+    if(active)
+        output_data_buf[i] = (output_data_buf[i] > 0) ? output_data_buf[i] : 0;
     
 }

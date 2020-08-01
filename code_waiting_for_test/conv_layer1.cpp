@@ -33,29 +33,26 @@ float Out_buf[CHout][R][C];
 		}
 	}
 
-	bias:for (int i = 0; i < CHout; i++)
-	{
-		/* code */
-		for (int j = 0; j < R; j++)
+		bias:for (int i = 0; i < CHout; i++)
 		{
 			/* code */
-			for (int m = 0; m < C; m++)
+			for (int j = 0; j < R; j++)
 			{
 				/* code */
-				Out_buf[i][j][m] += bias_buf[i];
-				if(active)
-					Out[i][j][m] = (Out_buf[i][j][m]>0) ? Out_buf[i][j][m] : 0;
-				else
+				for (int m = 0; m < C; m++)
 				{
-					Out[i][j][m] = Out_buf[i][j][m];
+					/* code */
+					Out_buf[i][j][m] += bias_buf[i];
+					if(active)
+						Out[i][j][m] = (Out_buf[i][j][m]>0) ? Out_buf[i][j][m] : 0;
+					else
+					{
+						Out[i][j][m] = Out_buf[i][j][m];
+					}
+					
 				}
 				
 			}
 			
 		}
-		
-	}
-	
-
-	return;
 }

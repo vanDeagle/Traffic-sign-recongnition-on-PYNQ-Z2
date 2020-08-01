@@ -146,7 +146,7 @@ void  LeNet_Hw(
                     }
                     
                 }
-            full_connection_layer1(pooling2_out,fc1_out,fc1_weights_buf,fc2_bias_buf,1,i);
+            full_connection_layer1(pooling2_out,fc1_out,fc1_weights_buf,fc1_bias_buf,1,i);
         }
         for (int i = 0; i < FC2_INPUT_NUM1; i++)
         {
