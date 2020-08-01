@@ -30,33 +30,59 @@
 
 仓库目录：
 --> Sources:
+
   --> hw_sources:
+
     ---> LeNet.cpp(顶层文件)
+
     ---> full_connection_layer1.cpp
+
     ---> full_connection_layer2.cpp
+
     ---> conv_layer1.cpp
+
     ---> conv_layer2.cpp
+
     ---> pooling_layer1.cpp
+
     ---> pooling_layer2.cpp
+
   --> hw_lib:
+
     ---> layer_lib.h
+
     ---> full_connection_layer1.h
+
     ---> full_connection_layer2.h
+
     ---> conv_layer1.h
+
     ---> conv_layer2.h
+
     ---> pooling_layer1.h
+
     ---> pooling_layer2.h
+
   --> sw_sources:
+
     ---> cnn.py
+
     ---> data_pre_handle.py
+
     ---> pynq_exec.ipynb
 
 --> ExecutableFiles:
+
   --> hw_bitstream:
+
     --> LeNet-5.bit
+
     --> LeNet-5.hwh
+
     --> LeNet-5.tcl
+
   --> jupyter_file:
+
     --> pynq_exec.ipynb
 
 
