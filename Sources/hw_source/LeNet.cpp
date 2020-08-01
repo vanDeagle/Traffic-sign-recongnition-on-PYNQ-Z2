@@ -33,9 +33,9 @@ void  LeNet_Hw(
     float output_data_buf[output_length];
     float fc1_weights_buf[FC1_INPUT_NUM1];
     float fc1_bias_buf[FC1_OUTPUT_NUM1];
-    float conv1_W[CONV1_CHout][CONV1_CHin][CONV_K][CONV_K];
+    float conv1_W_buf[CONV1_CHout][CONV1_CHin][CONV_K][CONV_K];
     float conv1_bias_buf[CONV1_CHout];
-    float conv2_W[CONV2_CHout][CONV2_CHin];
+    float conv2_W_buf[CONV2_CHout][CONV2_CHin];
     float conv2_bias_buf[CONV2_CHout];
     float fc2_weights_buf[FC2_INPUT_NUM1];
     float fc2_bias_buf[FC2_OUTPUT_NUM1];
@@ -59,7 +59,7 @@ void  LeNet_Hw(
 				for (int i = 0; i < CONV1_CHout; i++)
 				{
 					/* code */
-            		conv1_W[i][j][m][n] = *conv1_w++;
+            		conv1_W_buf[i][j][m][n] = *conv1_w++;
 				}
 				
 			}
@@ -117,7 +117,7 @@ void  LeNet_Hw(
 			
 		}
         /**************** CONV1_LAYER****************************/
-        conv_layer1(input_data_buf,conv1_out,conv1_W,conv1_bias_buf,1);
+        conv_layer1(input_data_buf,conv1_out,conv1_W_buf,conv1_bias_buf,1);
 
         /**************** POOLING1_LAYER****************************/
         pooling_layer1(conv1_out,pooling1_out);
@@ -151,10 +151,10 @@ void  LeNet_Hw(
                     {
             #pragma HLS PIPELINE
                         /* code */
-                        conv2_W[j][i] = *conv2_w++;
+                        conv2_W_buf[j][i] = *conv2_w++;
                     }    
                 }
-                conv_layer2(pooling1_out,conv2_out,conv2_W,conv2_bias_buf,1,kr,kc);
+                conv_layer2(pooling1_out,conv2_out,conv2_W_buf,conv2_bias_buf,1,kr,kc);
             }
         }
         bias:for (int i = 0; i < CONV2_CHout; i++)
