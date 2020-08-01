@@ -17,9 +17,8 @@
     1、完成神经网络的训练。
     2、完成神经网络加速器的设计。
     3、完成PS端控制实现。
+    4、完成PS端和PL端结合完成整个神经网络加速的设计
 
-存在未解决的问题：
-    1、PS端和PL端连接上存在问题，暂时未定位问题原因。
 
     组内成员：
     范峻岭  20BO179A  西南交通大学
@@ -29,39 +28,17 @@
 使用平台：pynq-z2（无其他外设）
 
 仓库目录：
---> Sources:
 
-  --> hw_sources:
+--> Sources
 
-    ---> LeNet.cpp(顶层文件)
+    --> hw_sources
 
-    ---> full_connection_layer1.cpp
-
-    ---> full_connection_layer2.cpp
-
-    ---> conv_layer1.cpp
-
-    ---> conv_layer2.cpp
-
-    ---> pooling_layer1.cpp
-
-    ---> pooling_layer2.cpp
+      ---> LeNet.cpp(顶层文件)  : 所有层均位于此文件中描述
 
   --> hw_lib:
 
     ---> layer_lib.h
 
-    ---> full_connection_layer1.h
-
-    ---> full_connection_layer2.h
-
-    ---> conv_layer1.h
-
-    ---> conv_layer2.h
-
-    ---> pooling_layer1.h
-
-    ---> pooling_layer2.h
 
   --> sw_sources:
 
@@ -73,17 +50,17 @@
 
 --> ExecutableFiles:
 
-  --> hw_bitstream:
+    --> hw_bitstream:
 
-    --> LeNet-5.bit
+      --> LeNet-5.bit
 
-    --> LeNet-5.hwh
+      --> LeNet-5.hwh
 
-    --> LeNet-5.tcl
+      --> LeNet-5.tcl
 
-  --> jupyter_file:
+    --> jupyter_file:
 
-    --> pynq_exec.ipynb
+      --> pynq_exec.ipynb
 
 
 

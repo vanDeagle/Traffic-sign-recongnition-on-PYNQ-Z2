@@ -1,4 +1,34 @@
-#include "layer_lib.h"
+/***********************************************
+Author: Kyle 
+Associated Filename: full_connection.cpp
+Purpose:to acceleration of the full_connection_layer
+Device: All 
+Revision History: July 28,2020
+------------------------------------------
+Meanings of ports:
+conv1_w         --->   DDR_ADDR of conv1_w
+conv1_bias      --->   DDR_ADDR of conv1_bias
+conv2_w         --->   DDR_ADDR of conv2_w
+conv2_bias      --->   DDR_ADDR of conv2_bias
+fc1_w           --->   DDR_ADDR of fc1_w
+fc1_bias        --->   DDR_ADDR of fc1_bias
+fc2_w           --->   DDR_ADDR of fc2_w
+fc2_bias        --->   DDR_ADDR of fc2_bias
+input_data      --->   DDR_ADDR of input_data
+output_data     --->   DDR_ADDR of output_data
+
+------------------------------------------
+Parameters of layers:
+LayerName      Input        Output
+  CONV1        32*32*3      28*28*32
+POOLING1      28*28*32      14*14*32
+  CONV2       14*14*32      10*10*32
+POOLING2      10*10*32       800
+   FC1          800           64
+   FC2          64            43
+***********************************************/
+
+#include "../hw_lib/layer_lib.h"
 
 void  LeNet_Hw(
     float *conv1_w,
@@ -13,6 +43,9 @@ void  LeNet_Hw(
     float *output_data
 )
 {
+    /****************************************
+     ********* INTERFACE PRAGMA**************
+     *********************************/
 #pragma HLS INTERFACE m_axi depth=256 port=output_data offset=slave
 #pragma HLS INTERFACE m_axi depth=256 port=input_data offset=slave
 #pragma HLS INTERFACE m_axi depth=256 port=fc2_w offset=slave
@@ -24,22 +57,37 @@ void  LeNet_Hw(
 #pragma HLS INTERFACE m_axi depth=256 port=conv1_w offset=slave
 #pragma HLS INTERFACE m_axi depth=256 port=conv1_bias offset=slave
 #pragma HLS INTERFACE s_axilite port=return
+
+    /****************************************
+     ********* REGISTER DEFINITION**************
+     *********************************/
     float input_data_buf[input_channel][input_R][input_C];
+#pragma HLS ARRAY_PARTITION variable=input_data_buf complete dim=1
     float conv1_out[CONV1_CHout][CONV1_R][CONV1_C];
+#pragma HLS ARRAY_PARTITION variable=conv1_out cyclic factor=8 dim=1
     float pooling1_out[POOLING1_CHout][POOLING1_R][POOLING1_C];
+#pragma HLS ARRAY_PARTITION variable=pooling1_out cyclic factor=8 dim=1
     float conv2_out[CONV2_CHout][CONV2_R][CONV2_C];
+#pragma HLS ARRAY_PARTITION variable=conv2_out cyclic factor=8 dim=1
     float pooling2_out[POOLING2_CHout*POOLING2_C*POOLING2_R];
     float fc1_out[FC1_OUTPUT_NUM1];
     float output_data_buf[output_length];
     float fc1_weights_buf[FC1_INPUT_NUM1];
     float fc1_bias_buf[FC1_OUTPUT_NUM1];
     float conv1_W_buf[CONV1_CHout][CONV1_CHin][CONV_K][CONV_K];
+#pragma HLS ARRAY_PARTITION variable=conv1_W_buf complete dim=2
+#pragma HLS ARRAY_PARTITION variable=conv1_W_buf cyclic factor=8 dim=1
     float conv1_bias_buf[CONV1_CHout];
     float conv2_W_buf[CONV2_CHout][CONV2_CHin];
+#pragma HLS ARRAY_PARTITION variable=conv2_W_buf cyclic factor=8 dim=1
+#pragma HLS ARRAY_PARTITION variable=conv2_W_buf cyclic factor=8 dim=2
     float conv2_bias_buf[CONV2_CHout];
     float fc2_weights_buf[FC2_INPUT_NUM1];
     float fc2_bias_buf[FC2_OUTPUT_NUM1];
 
+    /****************************************
+     ********* LOAD SOME WEIGHTS**************
+     *********************************/
     for (int i = 0; i < FC1_OUTPUT_NUM1; i++)
     {
         /* code */
@@ -51,13 +99,13 @@ void  LeNet_Hw(
         /* code */
         for (int n = 0; n < CONV_K; n++)
         {
-#pragma HLS PIPELINE
             /* code */
 			for (int j = 0; j < CONV1_CHin; j++)
 			{
 				/* code */
 				for (int i = 0; i < CONV1_CHout; i++)
 				{
+#pragma HLS UNROLL factor=8
 					/* code */
             		conv1_W_buf[i][j][m][n] = *conv1_w++;
 				}
@@ -89,17 +137,19 @@ void  LeNet_Hw(
         /* code */
         for (int j = 0; j < input_C; j++)
         {
-#pragma HLS PIPELINE
             /* code */
             for (int chi = 0; chi < input_channel; chi++)
             {
+#pragma HLS UNROLL factor=3
                 /* code */
                 input_data_buf[chi][i][j] = *input_data++;
             }
         }
     }
-
-    net_cal:
+    /****************************************
+     ********* CONV1_LAYER**************
+     *********************************/
+    CONV1_CLEAR:
     {
         for (int i = 0; i < CONV1_CHout; i++)
 		{
@@ -116,8 +166,8 @@ void  LeNet_Hw(
 			}
 			
 		}
-        /**************** CONV1_LAYER****************************/
-	for(int kr=0; kr<CONV_K; kr++)					
+
+	CONV1_CAL:for(int kr=0; kr<CONV_K; kr++)					
 	{
 		
 		for(int kc=0; kc<CONV_K; kc++)				
@@ -126,13 +176,12 @@ void  LeNet_Hw(
 			for(int r=0; r<CONV1_R; r++)				
 			{
 				
-				for(int c=0; c<CONV1_C; c++)	
+				CONV1_PIPE:for(int c=0; c<CONV1_C; c++)
 				{		
 #pragma HLS PIPELINE
 					
 					for(int cho=0; cho<CONV1_CHout; cho++)
-					{
-						
+					{		
 						for(int chi=0; chi<CONV1_CHin; chi++)						
 						{
 							conv1_out[cho][r][c] += input_data_buf[chi][r+kr][c+kc] * conv1_W_buf[cho][chi][kr][kc];
@@ -143,7 +192,7 @@ void  LeNet_Hw(
 		}
 	}
 
-		for (int i = 0; i < CONV1_CHout; i++)
+		CONV1_BIAS:for (int i = 0; i < CONV1_CHout; i++)
 		{
 			/* code */
 			for (int j = 0; j < CONV1_R; j++)
@@ -160,9 +209,10 @@ void  LeNet_Hw(
 			}
 			
 		}
-
-        /**************** POOLING1_LAYER****************************/
-        for (int chi = 0; chi < POOLING1_CHin; chi++)
+    /****************************************
+     ********* POOLING1_LAYER**************
+     *********************************/
+        POOLING1:for (int chi = 0; chi < POOLING1_CHin; chi++)
         {
             for (int r = 0; r < POOLING1_R; r++)
             {
@@ -187,8 +237,10 @@ void  LeNet_Hw(
             }
         }
 
-        /**************** CONV2_LAYER****************************/
-        for (int i = 0; i < CONV2_CHout; i++)
+    /****************************************
+     ********* CONV2_LAYER**************
+     *********************************/
+        CONV2_CLEAR:for (int i = 0; i < CONV2_CHout; i++)
 		{
 			/* code */
 			for (int j = 0; j < CONV2_R; j++)
@@ -204,7 +256,7 @@ void  LeNet_Hw(
 			
 		}
 
-        for (int kr = 0; kr < CONV_K; kr++)
+        CONV2_CAL:for (int kr = 0; kr < CONV_K; kr++)
 	    {
 		    /* code */
 		    for (int kc = 0; kc < CONV_K; kc++)
@@ -214,7 +266,7 @@ void  LeNet_Hw(
                     /* code */
                     for (int j = 0; j < CONV2_CHout; j++)
                     {
-            #pragma HLS PIPELINE
+#pragma HLS UNROLL factor=8
                         /* code */
                         conv2_W_buf[j][i] = *conv2_w++;
                     }    
@@ -225,11 +277,9 @@ void  LeNet_Hw(
                     
                     for(int c=0; c<CONV2_C; c++)	
                     {		
-                        
-                        for(int chi=0; chi<CONV2_CHin; chi++)
+                        CONV2_PIPE:for(int chi=0; chi<CONV2_CHin; chi++)
                         {
                             #pragma HLS PIPELINE
-                            
                             for(int cho=0; cho<CONV2_CHout; cho++)						
                             {
                                 conv2_out[cho][r][c] += pooling1_out[chi][r+kr][c+kc] * conv2_W_buf[cho][chi];
@@ -239,7 +289,7 @@ void  LeNet_Hw(
                 }
             }
         }
-        for (int i = 0; i < CONV2_CHout; i++)
+        CONV2_BIAS:for (int i = 0; i < CONV2_CHout; i++)
 		{
 			/* code */
 			for (int j = 0; j < CONV2_R; j++)
@@ -258,7 +308,9 @@ void  LeNet_Hw(
 
 
 
-        /**************** POOLING2_LAYER****************************/
+    /****************************************
+     ********* POOLING2_LAYER**************
+     *********************************/
         float pooling2_out_buf[POOLING2_CHout][POOLING2_R][POOLING2_C];
         for (int chi = 0; chi < POOLING2_CHin; chi++)
         {
@@ -306,7 +358,9 @@ void  LeNet_Hw(
         }
 
 
-        /**************** FULL_CONNECTION1_LAYER****************************/
+    /****************************************
+     ********* FULL_CONNECTION1_LAYER**************
+     *********************************/
         for (int i = 0; i < FC1_INPUT_NUM1; i++)
         {       
             for (int j = 0; j < FC1_OUTPUT_NUM1; j++)
@@ -339,8 +393,9 @@ void  LeNet_Hw(
             fc1_out[i] = (fc1_out[i] > 0) ? fc1_out[i] : 0;
         }
         
-
-        /**************** FULL_CONNECTION2_LAYER****************************/
+    /****************************************
+     ********* FULL_CONNECTION2_LAYER**************
+     *********************************/
         for (int i = 0; i < FC2_INPUT_NUM1; i++)
         {
 
@@ -377,7 +432,9 @@ void  LeNet_Hw(
         
     }
 
-
+    /****************************************
+     ********* OVER_LOAD THE OUTPUT DATA**************
+     *********************************/
     for (int i = 0; i < output_length; i++)
     {
 #pragma HLS PIPELINE
