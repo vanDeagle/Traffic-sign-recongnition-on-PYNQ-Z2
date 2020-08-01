@@ -16,9 +16,13 @@ void  LeNet_Hw(
 #pragma HLS INTERFACE m_axi depth=256 port=output_data offset=slave
 #pragma HLS INTERFACE m_axi depth=256 port=input_data offset=slave
 #pragma HLS INTERFACE m_axi depth=256 port=fc2_w offset=slave
+#pragma HLS INTERFACE m_axi depth=256 port=fc2_bias offset=slave
 #pragma HLS INTERFACE m_axi depth=256 port=fc1_w offset=slave
+#pragma HLS INTERFACE m_axi depth=256 port=fc1_bias offset=slave
 #pragma HLS INTERFACE m_axi depth=256 port=conv2_w offset=slave
+#pragma HLS INTERFACE m_axi depth=256 port=conv2_bias offset=slave
 #pragma HLS INTERFACE m_axi depth=256 port=conv1_w offset=slave
+#pragma HLS INTERFACE m_axi depth=256 port=conv1_bias offset=slave
 #pragma HLS INTERFACE s_axilite port=return
     float input_data_buf[input_channel][input_R][input_C];
     float conv1_out[CONV1_CHout][CONV1_R][CONV1_C];
@@ -50,7 +54,7 @@ void  LeNet_Hw(
         conv_layer2(pooling1_out,conv2_out,conv2_w,conv2_bias,1);
         pooling_layer2(conv2_out,pooling2_out);
         full_connection_layer1(pooling2_out,fc1_out,fc1_w,fc1_bias,1);
-        full_connection_layer2(fc1_out,output_data_buf,fc2_w,fc2_bias,1);
+        full_connection_layer2(fc1_out,output_data_buf,fc2_w,fc2_bias,0);
     }
 
 
@@ -61,5 +65,7 @@ void  LeNet_Hw(
         *output_data++ = output_data_buf[i];
     }
     
+    return;
+
 
 }
