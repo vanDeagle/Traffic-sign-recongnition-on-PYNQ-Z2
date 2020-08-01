@@ -367,6 +367,21 @@ draw_conclusion()
 
 同样输出了正确结果
 
+### 执行第五个cell
+
+```
+import time 
+starttime = time.time()
+for i in range(0,100):
+    input_random_sign()
+    draw_conclusion()
+endtime = time.time()
+
+print("100 images time: ",round(endtime - starttime, 2),'secs')  
+```
+![avatar](./images/5.png)
+
+这个cell对系统的速度进行了测试，最后在6.98秒内完成了对100张图片的识别，帧率为15左右们还有较大的优化空间
 # 四、总结  Result：
 
 这次的项目 “交通标志识别” 算是把所有流程走通了一遍，并成功实现了在PYNQ-Z2上利用HLS编写IP核对神经网络进行硬件加速，也算是达到了自己对于这次暑期学校的预期。
