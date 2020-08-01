@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Aug  1 11:28:12 2020" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Aug  1 13:57:19 2020" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="zynq" BOARD="tul.com.tw:pynq-z2:part0:1.0" DEVICE="7z020" NAME="design_2" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -159,7 +159,7 @@
   </EXTERNALINTERFACES>
 
   <MODULES>
-    <MODULE COREREVISION="2008011127" FULLNAME="/LeNet_Hw_1" HWVERSION="1.0" INSTANCE="LeNet_Hw_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="LeNet_Hw" VLNV="xilinx.com:hls:LeNet_Hw:1.0">
+    <MODULE COREREVISION="2008011355" FULLNAME="/LeNet_Hw_0" HWVERSION="1.0" INSTANCE="LeNet_Hw_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="LeNet_Hw" VLNV="xilinx.com:hls:LeNet_Hw:1.0">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="read-write" INTERFACE="s_axi_AXILiteS" NAME="Reg" RANGE="65536" USAGE="register">
@@ -573,98 +573,98 @@
         <PARAMETER NAME="C_M_AXI_GMEM_CACHE_VALUE" VALUE="&quot;0011&quot;"/>
         <PARAMETER NAME="C_M_AXI_GMEM_ENABLE_ID_PORTS" VALUE="false"/>
         <PARAMETER NAME="C_M_AXI_GMEM_ENABLE_USER_PORTS" VALUE="false"/>
-        <PARAMETER NAME="Component_Name" VALUE="design_2_LeNet_Hw_1_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_2_LeNet_Hw_0_0"/>
         <PARAMETER NAME="clk_period" VALUE="10"/>
         <PARAMETER NAME="machine" VALUE="64"/>
         <PARAMETER NAME="combinational" VALUE="0"/>
-        <PARAMETER NAME="latency" VALUE="1188133"/>
+        <PARAMETER NAME="latency" VALUE="3774086"/>
         <PARAMETER NAME="II" VALUE="x"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_S_AXI_AXILITES_BASEADDR" VALUE="0x43C00000"/>
         <PARAMETER NAME="C_S_AXI_AXILITES_HIGHADDR" VALUE="0x43C0FFFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" LEFT="6" NAME="s_axi_AXILiteS_AWADDR" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_AWADDR">
+        <PORT DIR="I" LEFT="6" NAME="s_axi_AXILiteS_AWADDR" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_AWADDR">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_AXILiteS_AWVALID" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_AWVALID">
+        <PORT DIR="I" NAME="s_axi_AXILiteS_AWVALID" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_AWVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_awvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s_axi_AXILiteS_AWREADY" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_AWREADY">
+        <PORT DIR="O" NAME="s_axi_AXILiteS_AWREADY" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_AWREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_awready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="s_axi_AXILiteS_WDATA" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_WDATA">
+        <PORT DIR="I" LEFT="31" NAME="s_axi_AXILiteS_WDATA" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_WDATA">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_wdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="s_axi_AXILiteS_WSTRB" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_WSTRB">
+        <PORT DIR="I" LEFT="3" NAME="s_axi_AXILiteS_WSTRB" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_WSTRB">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_AXILiteS_WVALID" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_WVALID">
+        <PORT DIR="I" NAME="s_axi_AXILiteS_WVALID" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_WVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_wvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s_axi_AXILiteS_WREADY" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_WREADY">
+        <PORT DIR="O" NAME="s_axi_AXILiteS_WREADY" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_WREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_wready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="s_axi_AXILiteS_BRESP" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_BRESP">
+        <PORT DIR="O" LEFT="1" NAME="s_axi_AXILiteS_BRESP" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_BRESP">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_bresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s_axi_AXILiteS_BVALID" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_BVALID">
+        <PORT DIR="O" NAME="s_axi_AXILiteS_BVALID" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_BVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_AXILiteS_BREADY" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_BREADY">
+        <PORT DIR="I" NAME="s_axi_AXILiteS_BREADY" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_BREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_bready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="6" NAME="s_axi_AXILiteS_ARADDR" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_ARADDR">
+        <PORT DIR="I" LEFT="6" NAME="s_axi_AXILiteS_ARADDR" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_ARADDR">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_AXILiteS_ARVALID" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_ARVALID">
+        <PORT DIR="I" NAME="s_axi_AXILiteS_ARVALID" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_ARVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_arvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s_axi_AXILiteS_ARREADY" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_ARREADY">
+        <PORT DIR="O" NAME="s_axi_AXILiteS_ARREADY" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_ARREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_arready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="s_axi_AXILiteS_RDATA" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_RDATA">
+        <PORT DIR="O" LEFT="31" NAME="s_axi_AXILiteS_RDATA" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_RDATA">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_rdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="s_axi_AXILiteS_RRESP" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_RRESP">
+        <PORT DIR="O" LEFT="1" NAME="s_axi_AXILiteS_RRESP" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_RRESP">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s_axi_AXILiteS_RVALID" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_RVALID">
+        <PORT DIR="O" NAME="s_axi_AXILiteS_RVALID" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_RVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_rvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_AXILiteS_RREADY" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_RREADY">
+        <PORT DIR="I" NAME="s_axi_AXILiteS_RREADY" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_RREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_rready"/>
           </CONNECTIONS>
@@ -680,169 +680,169 @@
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="interrupt" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT"/>
-        <PORT DIR="O" LEFT="31" NAME="m_axi_gmem_AWADDR" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWADDR">
+        <PORT DIR="O" LEFT="31" NAME="m_axi_gmem_AWADDR" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWADDR">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="7" NAME="m_axi_gmem_AWLEN" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWLEN">
+        <PORT DIR="O" LEFT="7" NAME="m_axi_gmem_AWLEN" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWLEN">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_awlen"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="2" NAME="m_axi_gmem_AWSIZE" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWSIZE">
+        <PORT DIR="O" LEFT="2" NAME="m_axi_gmem_AWSIZE" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWSIZE">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_awsize"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="m_axi_gmem_AWBURST" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWBURST">
+        <PORT DIR="O" LEFT="1" NAME="m_axi_gmem_AWBURST" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWBURST">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_awburst"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="m_axi_gmem_AWLOCK" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWLOCK">
+        <PORT DIR="O" LEFT="1" NAME="m_axi_gmem_AWLOCK" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWLOCK">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_awlock"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="3" NAME="m_axi_gmem_AWREGION" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="3" NAME="m_axi_gmem_AWCACHE" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWCACHE">
+        <PORT DIR="O" LEFT="3" NAME="m_axi_gmem_AWCACHE" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWCACHE">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_awcache"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="2" NAME="m_axi_gmem_AWPROT" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWPROT">
+        <PORT DIR="O" LEFT="2" NAME="m_axi_gmem_AWPROT" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWPROT">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_awprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="m_axi_gmem_AWQOS" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWQOS">
+        <PORT DIR="O" LEFT="3" NAME="m_axi_gmem_AWQOS" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWQOS">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_awqos"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="m_axi_gmem_AWVALID" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWVALID">
+        <PORT DIR="O" NAME="m_axi_gmem_AWVALID" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_awvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="m_axi_gmem_AWREADY" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWREADY">
+        <PORT DIR="I" NAME="m_axi_gmem_AWREADY" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_awready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="m_axi_gmem_WDATA" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_WDATA">
+        <PORT DIR="O" LEFT="31" NAME="m_axi_gmem_WDATA" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_WDATA">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_wdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="m_axi_gmem_WSTRB" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_WSTRB">
+        <PORT DIR="O" LEFT="3" NAME="m_axi_gmem_WSTRB" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_WSTRB">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="m_axi_gmem_WLAST" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_WLAST">
+        <PORT DIR="O" NAME="m_axi_gmem_WLAST" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_WLAST">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_wlast"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="m_axi_gmem_WVALID" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_WVALID">
+        <PORT DIR="O" NAME="m_axi_gmem_WVALID" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_WVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_wvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="m_axi_gmem_WREADY" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_WREADY">
+        <PORT DIR="I" NAME="m_axi_gmem_WREADY" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_WREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_wready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="m_axi_gmem_BRESP" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_BRESP">
+        <PORT DIR="I" LEFT="1" NAME="m_axi_gmem_BRESP" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_BRESP">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_bresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="m_axi_gmem_BVALID" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_BVALID">
+        <PORT DIR="I" NAME="m_axi_gmem_BVALID" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_BVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_bvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="m_axi_gmem_BREADY" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_BREADY">
+        <PORT DIR="O" NAME="m_axi_gmem_BREADY" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_BREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_bready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="m_axi_gmem_ARADDR" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARADDR">
+        <PORT DIR="O" LEFT="31" NAME="m_axi_gmem_ARADDR" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARADDR">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_araddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="7" NAME="m_axi_gmem_ARLEN" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARLEN">
+        <PORT DIR="O" LEFT="7" NAME="m_axi_gmem_ARLEN" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARLEN">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_arlen"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="2" NAME="m_axi_gmem_ARSIZE" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARSIZE">
+        <PORT DIR="O" LEFT="2" NAME="m_axi_gmem_ARSIZE" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARSIZE">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_arsize"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="m_axi_gmem_ARBURST" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARBURST">
+        <PORT DIR="O" LEFT="1" NAME="m_axi_gmem_ARBURST" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARBURST">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_arburst"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="m_axi_gmem_ARLOCK" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARLOCK">
+        <PORT DIR="O" LEFT="1" NAME="m_axi_gmem_ARLOCK" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARLOCK">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_arlock"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="3" NAME="m_axi_gmem_ARREGION" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="3" NAME="m_axi_gmem_ARCACHE" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARCACHE">
+        <PORT DIR="O" LEFT="3" NAME="m_axi_gmem_ARCACHE" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARCACHE">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_arcache"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="2" NAME="m_axi_gmem_ARPROT" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARPROT">
+        <PORT DIR="O" LEFT="2" NAME="m_axi_gmem_ARPROT" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARPROT">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_arprot"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="m_axi_gmem_ARQOS" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARQOS">
+        <PORT DIR="O" LEFT="3" NAME="m_axi_gmem_ARQOS" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARQOS">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_arqos"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="m_axi_gmem_ARVALID" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARVALID">
+        <PORT DIR="O" NAME="m_axi_gmem_ARVALID" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_arvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="m_axi_gmem_ARREADY" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARREADY">
+        <PORT DIR="I" NAME="m_axi_gmem_ARREADY" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_arready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="m_axi_gmem_RDATA" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_RDATA">
+        <PORT DIR="I" LEFT="31" NAME="m_axi_gmem_RDATA" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_RDATA">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_rdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="m_axi_gmem_RRESP" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_RRESP">
+        <PORT DIR="I" LEFT="1" NAME="m_axi_gmem_RRESP" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_RRESP">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="m_axi_gmem_RLAST" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_RLAST">
+        <PORT DIR="I" NAME="m_axi_gmem_RLAST" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_RLAST">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_rlast"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="m_axi_gmem_RVALID" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_RVALID">
+        <PORT DIR="I" NAME="m_axi_gmem_RVALID" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_RVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_rvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="m_axi_gmem_RREADY" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_RREADY">
+        <PORT DIR="O" NAME="m_axi_gmem_RREADY" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_RREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="S00_AXI_rready"/>
           </CONNECTIONS>
@@ -902,7 +902,7 @@
             <PORTMAP LOGICAL="RREADY" PHYSICAL="s_axi_AXILiteS_RREADY"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="LeNet_Hw_1_m_axi_gmem" DATAWIDTH="32" NAME="m_axi_gmem" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="LeNet_Hw_0_m_axi_gmem" DATAWIDTH="32" NAME="m_axi_gmem" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="256"/>
           <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="16"/>
@@ -1006,169 +1006,169 @@
             <CONNECTION INSTANCE="rst_ps7_0_100M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="S00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWADDR">
+        <PORT DIR="I" LEFT="31" NAME="S00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWADDR">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_AWADDR"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_AWADDR"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="S00_AXI_awlen" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWLEN">
+        <PORT DIR="I" LEFT="7" NAME="S00_AXI_awlen" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWLEN">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_AWLEN"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_AWLEN"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="S00_AXI_awsize" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWSIZE">
+        <PORT DIR="I" LEFT="2" NAME="S00_AXI_awsize" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWSIZE">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_AWSIZE"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_AWSIZE"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="S00_AXI_awburst" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWBURST">
+        <PORT DIR="I" LEFT="1" NAME="S00_AXI_awburst" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWBURST">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_AWBURST"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_AWBURST"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="S00_AXI_awlock" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWLOCK">
+        <PORT DIR="I" LEFT="0" NAME="S00_AXI_awlock" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWLOCK">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_AWLOCK"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_AWLOCK"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="S00_AXI_awcache" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWCACHE">
+        <PORT DIR="I" LEFT="3" NAME="S00_AXI_awcache" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWCACHE">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_AWCACHE"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_AWCACHE"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="S00_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWPROT">
+        <PORT DIR="I" LEFT="2" NAME="S00_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWPROT">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_AWPROT"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_AWPROT"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="S00_AXI_awqos" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWQOS">
+        <PORT DIR="I" LEFT="3" NAME="S00_AXI_awqos" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWQOS">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_AWQOS"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_AWQOS"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S00_AXI_awvalid" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWVALID">
+        <PORT DIR="I" NAME="S00_AXI_awvalid" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_AWVALID"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_AWVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S00_AXI_awready" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_AWREADY">
+        <PORT DIR="O" NAME="S00_AXI_awready" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_AWREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_AWREADY"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_AWREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="S00_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_WDATA">
+        <PORT DIR="I" LEFT="31" NAME="S00_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_WDATA">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_WDATA"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_WDATA"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="S00_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_WSTRB">
+        <PORT DIR="I" LEFT="3" NAME="S00_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_WSTRB">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_WSTRB"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_WSTRB"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S00_AXI_wlast" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_WLAST">
+        <PORT DIR="I" NAME="S00_AXI_wlast" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_WLAST">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_WLAST"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_WLAST"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S00_AXI_wvalid" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_WVALID">
+        <PORT DIR="I" NAME="S00_AXI_wvalid" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_WVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_WVALID"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_WVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S00_AXI_wready" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_WREADY">
+        <PORT DIR="O" NAME="S00_AXI_wready" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_WREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_WREADY"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_WREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="S00_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_BRESP">
+        <PORT DIR="O" LEFT="1" NAME="S00_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_BRESP">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_BRESP"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_BRESP"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S00_AXI_bvalid" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_BVALID">
+        <PORT DIR="O" NAME="S00_AXI_bvalid" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_BVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_BVALID"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_BVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S00_AXI_bready" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_BREADY">
+        <PORT DIR="I" NAME="S00_AXI_bready" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_BREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_BREADY"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_BREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="S00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARADDR">
+        <PORT DIR="I" LEFT="31" NAME="S00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARADDR">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_ARADDR"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_ARADDR"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="S00_AXI_arlen" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARLEN">
+        <PORT DIR="I" LEFT="7" NAME="S00_AXI_arlen" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARLEN">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_ARLEN"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_ARLEN"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="S00_AXI_arsize" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARSIZE">
+        <PORT DIR="I" LEFT="2" NAME="S00_AXI_arsize" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARSIZE">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_ARSIZE"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_ARSIZE"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="S00_AXI_arburst" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARBURST">
+        <PORT DIR="I" LEFT="1" NAME="S00_AXI_arburst" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARBURST">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_ARBURST"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_ARBURST"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="S00_AXI_arlock" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARLOCK">
+        <PORT DIR="I" LEFT="0" NAME="S00_AXI_arlock" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARLOCK">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_ARLOCK"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_ARLOCK"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="S00_AXI_arcache" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARCACHE">
+        <PORT DIR="I" LEFT="3" NAME="S00_AXI_arcache" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARCACHE">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_ARCACHE"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_ARCACHE"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="S00_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARPROT">
+        <PORT DIR="I" LEFT="2" NAME="S00_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARPROT">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_ARPROT"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_ARPROT"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="S00_AXI_arqos" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARQOS">
+        <PORT DIR="I" LEFT="3" NAME="S00_AXI_arqos" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARQOS">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_ARQOS"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_ARQOS"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S00_AXI_arvalid" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARVALID">
+        <PORT DIR="I" NAME="S00_AXI_arvalid" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_ARVALID"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_ARVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S00_AXI_arready" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_ARREADY">
+        <PORT DIR="O" NAME="S00_AXI_arready" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_ARREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_ARREADY"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_ARREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="S00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_RDATA">
+        <PORT DIR="O" LEFT="31" NAME="S00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_RDATA">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_RDATA"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_RDATA"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="S00_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_RRESP">
+        <PORT DIR="O" LEFT="1" NAME="S00_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_RRESP">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_RRESP"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_RRESP"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S00_AXI_rlast" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_RLAST">
+        <PORT DIR="O" NAME="S00_AXI_rlast" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_RLAST">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_RLAST"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_RLAST"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S00_AXI_rvalid" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_RVALID">
+        <PORT DIR="O" NAME="S00_AXI_rvalid" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_RVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_RVALID"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_RVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S00_AXI_rready" SIGIS="undef" SIGNAME="LeNet_Hw_1_m_axi_gmem_RREADY">
+        <PORT DIR="I" NAME="S00_AXI_rready" SIGIS="undef" SIGNAME="LeNet_Hw_0_m_axi_gmem_RREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="m_axi_gmem_RREADY"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="m_axi_gmem_RREADY"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_awaddr">
@@ -1338,7 +1338,7 @@
         </PORT>
       </PORTS>
       <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="LeNet_Hw_1_m_axi_gmem" DATAWIDTH="32" NAME="S00_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="LeNet_Hw_0_m_axi_gmem" DATAWIDTH="32" NAME="S00_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
@@ -2812,7 +2812,7 @@
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="ACLK"/>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="ap_clk"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="ap_clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="FCLK_RESET0_N" SIGIS="rst" SIGNAME="processing_system7_0_FCLK_RESET0_N">
@@ -3136,10 +3136,10 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
       <MEMORYMAP>
-        <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_S_AXI_AXILITES_BASEADDR" BASEVALUE="0x43C00000" HIGHNAME="C_S_AXI_AXILITES_HIGHADDR" HIGHVALUE="0x43C0FFFF" INSTANCE="LeNet_Hw_1" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="s_axi_AXILiteS"/>
+        <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_S_AXI_AXILITES_BASEADDR" BASEVALUE="0x43C00000" HIGHNAME="C_S_AXI_AXILITES_HIGHADDR" HIGHVALUE="0x43C0FFFF" INSTANCE="LeNet_Hw_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="s_axi_AXILiteS"/>
       </MEMORYMAP>
       <PERIPHERALS>
-        <PERIPHERAL INSTANCE="LeNet_Hw_1"/>
+        <PERIPHERAL INSTANCE="LeNet_Hw_0"/>
       </PERIPHERALS>
     </MODULE>
     <MODULE COREREVISION="19" FULLNAME="/ps7_0_axi_periph" HWVERSION="2.1" INSTANCE="ps7_0_axi_periph" IPTYPE="BUS" IS_ENABLE="1" MODCLASS="BUS" MODTYPE="axi_interconnect" VLNV="xilinx.com:ip:axi_interconnect:2.1">
@@ -3495,91 +3495,91 @@
             <CONNECTION INSTANCE="rst_ps7_0_100M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_AWADDR">
+        <PORT DIR="O" LEFT="31" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_AWADDR">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="s_axi_AXILiteS_AWADDR"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="s_axi_AXILiteS_AWADDR"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="M00_AXI_awprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M00_AXI_awvalid" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_AWVALID">
+        <PORT DIR="O" NAME="M00_AXI_awvalid" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_AWVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="s_axi_AXILiteS_AWVALID"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="s_axi_AXILiteS_AWVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M00_AXI_awready" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_AWREADY">
+        <PORT DIR="I" NAME="M00_AXI_awready" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_AWREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="s_axi_AXILiteS_AWREADY"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="s_axi_AXILiteS_AWREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_WDATA">
+        <PORT DIR="O" LEFT="31" NAME="M00_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_WDATA">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="s_axi_AXILiteS_WDATA"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="s_axi_AXILiteS_WDATA"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="M00_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_WSTRB">
+        <PORT DIR="O" LEFT="3" NAME="M00_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_WSTRB">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="s_axi_AXILiteS_WSTRB"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="s_axi_AXILiteS_WSTRB"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M00_AXI_wvalid" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_WVALID">
+        <PORT DIR="O" NAME="M00_AXI_wvalid" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_WVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="s_axi_AXILiteS_WVALID"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="s_axi_AXILiteS_WVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M00_AXI_wready" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_WREADY">
+        <PORT DIR="I" NAME="M00_AXI_wready" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_WREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="s_axi_AXILiteS_WREADY"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="s_axi_AXILiteS_WREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M00_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_BRESP">
+        <PORT DIR="I" LEFT="1" NAME="M00_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_BRESP">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="s_axi_AXILiteS_BRESP"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="s_axi_AXILiteS_BRESP"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M00_AXI_bvalid" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_BVALID">
+        <PORT DIR="I" NAME="M00_AXI_bvalid" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_BVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="s_axi_AXILiteS_BVALID"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="s_axi_AXILiteS_BVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M00_AXI_bready" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_BREADY">
+        <PORT DIR="O" NAME="M00_AXI_bready" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_BREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="s_axi_AXILiteS_BREADY"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="s_axi_AXILiteS_BREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_ARADDR">
+        <PORT DIR="O" LEFT="31" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_ARADDR">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="s_axi_AXILiteS_ARADDR"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="s_axi_AXILiteS_ARADDR"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="M00_AXI_arprot" SIGIS="undef"/>
-        <PORT DIR="O" NAME="M00_AXI_arvalid" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_ARVALID">
+        <PORT DIR="O" NAME="M00_AXI_arvalid" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_ARVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="s_axi_AXILiteS_ARVALID"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="s_axi_AXILiteS_ARVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M00_AXI_arready" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_ARREADY">
+        <PORT DIR="I" NAME="M00_AXI_arready" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_ARREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="s_axi_AXILiteS_ARREADY"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="s_axi_AXILiteS_ARREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="M00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_RDATA">
+        <PORT DIR="I" LEFT="31" NAME="M00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_RDATA">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="s_axi_AXILiteS_RDATA"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="s_axi_AXILiteS_RDATA"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M00_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_RRESP">
+        <PORT DIR="I" LEFT="1" NAME="M00_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_RRESP">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="s_axi_AXILiteS_RRESP"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="s_axi_AXILiteS_RRESP"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M00_AXI_rvalid" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_RVALID">
+        <PORT DIR="I" NAME="M00_AXI_rvalid" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_RVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="s_axi_AXILiteS_RVALID"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="s_axi_AXILiteS_RVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="M00_AXI_rready" SIGIS="undef" SIGNAME="LeNet_Hw_1_s_axi_AXILiteS_RREADY">
+        <PORT DIR="O" NAME="M00_AXI_rready" SIGIS="undef" SIGNAME="LeNet_Hw_0_s_axi_AXILiteS_RREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="s_axi_AXILiteS_RREADY"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="s_axi_AXILiteS_RREADY"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="11" NAME="S00_AXI_awid" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_M_AXI_GP0_AWID">
@@ -3884,7 +3884,7 @@
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="ARESETN"/>
-            <CONNECTION INSTANCE="LeNet_Hw_1" PORT="ap_rst_n"/>
+            <CONNECTION INSTANCE="LeNet_Hw_0" PORT="ap_rst_n"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
