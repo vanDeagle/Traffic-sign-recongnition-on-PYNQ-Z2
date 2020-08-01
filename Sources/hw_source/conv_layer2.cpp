@@ -1,33 +1,12 @@
 #include "conv_layer2.h"
 
-void conv_layer2(float In[CHin][Rin][Cin],float Out[CHout][R][C],float *Weight,float *bias,bool active)
+void conv_layer2(float In[CHin][Rin][Cin],float Out[CHout][R][C],float W[CHout][CHin],float bias_buf[CHout],bool active,int kr,int kc)
 {
 
-float W[CHout][CHin];
-float bias_buf[CHout];
 float Out_buf[CHout][R][C];
-#pragma HLS INTERFACE s_axilite port=return
-#pragma HLS INTERFACE m_axi depth=256 port=Weight offset=slave
-#pragma HLS INTERFACE m_axi depth=256 port=bias offset=slave
 #pragma HLS ARRAY_PARTITION variable=Out cyclic factor=2 dim=1
 #pragma HLS ARRAY_PARTITION variable=W cyclic factor=4 dim=1
 
-
-	for (int kr = 0; kr < K; kr++)
-	{
-		/* code */
-		for (int kc = 0; kc < K; kc++)
-		{
-			load_weights:for (int i = 0; i < CHin; i++)
-			{
-				/* code */
-				for (int j = 0; j < CHout; j++)
-				{
-		#pragma HLS PIPELINE
-					/* code */
-					W[j][i] = *Weight++;
-				}    
-			}
 
 			cal_Row:
 			for(int r=0; r<R; r++)				
@@ -47,42 +26,7 @@ float Out_buf[CHout][R][C];
 					}
 				}
 			}
-		}
-				
-	}
-	load_bias:
-	{
-		for (int i = 0; i < CHout; i++)
-		{
-			/* code */
-			bias_buf[i] = *bias++;
-		}
 		
-	}
-
-	bias:for (int i = 0; i < CHout; i++)
-	{
-		/* code */
-		for (int j = 0; j < R; j++)
-		{
-			/* code */
-			for (int m = 0; m < C; m++)
-			{
-				/* code */
-				Out_buf[i][j][m] += bias[i];
-				if(active)
-					Out[i][j][m] = (Out_buf[i][j][m]>0) ? Out_buf[i][j][m] : 0;
-				else
-				{
-					Out[i][j][m] = Out_buf[i][j][m];
-				}
 				
-			}
-			
-		}
-		
-	}
-	
 
-	return;
 }

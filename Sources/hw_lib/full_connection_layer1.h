@@ -8,9 +8,10 @@
 extern void full_connection_layer1(
     float input_data_buf[INPUT_NUM1],
     float output_data_buf[OUTPUT_NUM1],
-    float *weights,
-    float *bias,
-    bool active   
+    float weights_buf[INPUT_NUM1],
+    float bias_buf[OUTPUT_NUM1],
+    bool active,
+    int i
 );
 
 #endif

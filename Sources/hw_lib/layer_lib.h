@@ -64,39 +64,44 @@ extern void pooling_layer2(
 extern void conv_layer1(
     float In[CONV1_CHin][CONV1_Rin][CONV1_Cin],
     float Out[CONV1_CHout][CONV1_R][CONV1_C],
-    float *Weight,
-    float *bias,
+    float W[CONV1_CHout][CONV1_CHin][CONV_K][CONV_K],
+    float bias_buf[CONV1_CHout],
     bool active
     );
 
 extern void conv_layer2(
     float In[CONV2_CHin][CONV2_Rin][CONV2_Cin],
     float Out[CONV2_CHout][CONV2_R][CONV2_C],
-    float *weights,
-    float *bias,
-    bool active
+    float W[CONV2_CHout][CONV2_CHin],
+    float bias_buf[CONV2_CHout],
+    bool active,
+    int kr,
+    int kc
     );
 
 extern void full_connection_layer1(
     float input_data_buf[FC1_INPUT_NUM1],
     float output_data_buf[FC1_OUTPUT_NUM1],
-    float *weights,
-    float *bias,
-    bool active   
+    float weights_buf[FC1_INPUT_NUM1],
+    float bias_buf[FC1_OUTPUT_NUM1],
+    bool active,
+    int i   
 );
 
 extern void full_connection_layer2(
     float input_data_buf[FC2_INPUT_NUM1],
     float output_data_buf[FC2_OUTPUT_NUM1],
-    float *weights,
-    float *bias,
-    bool active   
+    float weights_buf[FC2_INPUT_NUM1],
+    float bias_buf[FC2_OUTPUT_NUM1],
+    bool active,
+    int i   
 );
 
 extern void full_connection_layer3(
     float input_data_buf[FC3_INPUT_NUM1],
     float output_data_buf[FC3_OUTPUT_NUM1],
     float *weights,
-    bool active   
+    bool active,
+    int i   
 );
 #endif

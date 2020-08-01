@@ -9,5 +9,5 @@
 #define CHin 32
 #define CHout 32
 
-extern void conv_layer2(float In[CHin][Rin][Cin],float Out[CHout][R][C],float *Weight,float *bias,bool active);
+extern void conv_layer2(float In[CHin][Rin][Cin],float Out[CHout][R][C],float W[CHout][CHin],float bias_buf[CHout],bool active,int kr,int kc);
 #endif

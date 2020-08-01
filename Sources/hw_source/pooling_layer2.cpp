@@ -33,13 +33,13 @@ void pooling_layer2(
     }
     
     int cnt = 0;
-    for (int cho = 0; cho < CHout; cho++)
+    for (int r = 0; r < R; r++)
     {
         /* code */
-        for (int r = 0; r < R; r++)
+        for (int c = 0; c < C; c++)
         {
             /* code */
-            for (int c = 0; c < C; c++)
+            for (int cho = 0; cho < CHout; cho++)
             {
                 #pragma HLS PIPELINE
                 /* code */
