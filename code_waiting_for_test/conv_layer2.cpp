@@ -8,8 +8,6 @@ float Out_buf[CHout][R][C];
 #pragma HLS ARRAY_PARTITION variable=W cyclic factor=4 dim=1
 
 
-
-
 			cal_Row:
 			for(int r=0; r<R; r++)				
 			{
@@ -30,32 +28,5 @@ float Out_buf[CHout][R][C];
 			}
 		
 				
-	
 
-	if((kr == K)&(kc == K))
-	{
-		bias:for (int i = 0; i < CHout; i++)
-		{
-			/* code */
-			for (int j = 0; j < R; j++)
-			{
-				/* code */
-				for (int m = 0; m < C; m++)
-				{
-					/* code */
-					Out_buf[i][j][m] += bias_buf[i];
-					if(active)
-						Out[i][j][m] = (Out_buf[i][j][m]>0) ? Out_buf[i][j][m] : 0;
-					else
-					{
-						Out[i][j][m] = Out_buf[i][j][m];
-					}
-					
-				}
-				
-			}
-			
-		}
-	}
-	return;
 }

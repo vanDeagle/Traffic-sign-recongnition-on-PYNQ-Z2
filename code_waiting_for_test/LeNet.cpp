@@ -101,11 +101,43 @@ void  LeNet_Hw(
 
     net_cal:
     {
+        for (int i = 0; i < CONV1_CHout; i++)
+		{
+			/* code */
+			for (int j = 0; j < CONV1_R; j++)
+			{
+				/* code */
+				for (int m = 0; m < CONV1_C; m++)
+				{
+					/* code */
+					conv1_out[i][j][m] = 0;
+				}
+				
+			}
+			
+		}
+        /**************** CONV1_LAYER****************************/
         conv_layer1(input_data_buf,conv1_out,conv1_W,conv1_bias_buf,1);
 
-
+        /**************** POOLING1_LAYER****************************/
         pooling_layer1(conv1_out,pooling1_out);
 
+        /**************** CONV2_LAYER****************************/
+        for (int i = 0; i < CONV2_CHout; i++)
+		{
+			/* code */
+			for (int j = 0; j < CONV2_R; j++)
+			{
+				/* code */
+				for (int m = 0; m < CONV2_C; m++)
+				{
+					/* code */
+					conv2_out[i][j][m] = 0;
+				}
+				
+			}
+			
+		}
 
         for (int kr = 0; kr < CONV_K; kr++)
 	    {
@@ -125,10 +157,30 @@ void  LeNet_Hw(
                 conv_layer2(pooling1_out,conv2_out,conv2_W,conv2_bias_buf,1,kr,kc);
             }
         }
+        bias:for (int i = 0; i < CONV2_CHout; i++)
+		{
+			/* code */
+			for (int j = 0; j < CONV2_R; j++)
+			{
+				/* code */
+				for (int m = 0; m < CONV2_C; m++)
+				{
+					/* code */
+					conv2_out[i][j][m] += conv2_bias_buf[i];
+					conv2_out[i][j][m] = (conv2_out[i][j][m]>0) ? conv2_out[i][j][m] : 0;
+				}
+				
+			}
+			
+		}
 
 
+
+        /**************** POOLING2_LAYER****************************/
         pooling_layer2(conv2_out,pooling2_out);
 
+
+        /**************** FULL_CONNECTION1_LAYER****************************/
         for (int i = 0; i < FC1_INPUT_NUM1; i++)
         {       
             for (int j = 0; j < FC1_OUTPUT_NUM1; j++)
@@ -148,6 +200,16 @@ void  LeNet_Hw(
                 }
             full_connection_layer1(pooling2_out,fc1_out,fc1_weights_buf,fc1_bias_buf,1,i);
         }
+
+        for (int i = 0; i < FC1_OUTPUT_NUM1; i++)
+        {
+            /* code */
+            fc1_out[i] += fc1_bias_buf[i];
+            fc1_out[i] = (fc1_out[i] > 0) ? fc1_out[i] : 0;
+        }
+        
+
+        /**************** FULL_CONNECTION2_LAYER****************************/
         for (int i = 0; i < FC2_INPUT_NUM1; i++)
         {
             load_data:
@@ -172,6 +234,13 @@ void  LeNet_Hw(
             }
             
         }
+        
+        for (int i = 0; i < FC2_OUTPUT_NUM1; i++)
+        {
+            /* code */
+            output_data_buf[i] += fc2_bias_buf[i];
+        }
+        
     }
 
 
